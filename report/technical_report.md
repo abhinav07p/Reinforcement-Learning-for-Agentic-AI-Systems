@@ -443,42 +443,5 @@ This tool was instrumental in discovering the **diminishing returns** behavior o
 - All seeds hardcoded; results should be bit-identical on a fixed
   platform with identical library versions.
 
-## Appendix B — Rubric Coverage
-
-**All five RL categories implemented (rubric required ≥2):**
-
-- **Category 1 (Value-Based Learning):** DQN orchestrator (§2.4), 98.5% held-out success
-- **Category 2 (Policy Gradient Methods):** PPO orchestrator (§2.2), 99.0% success;
-  REINFORCE-with-baseline for IPPO specialists (§2.3)
-- **Category 3 (Multi-Agent RL):** IPPO with shared team reward (§2.3),
-  maintains 99.0% success as cooperative equilibrium
-- **Category 4 (Exploration Strategies):** LinUCB contextual bandit (§2.5), 70.5%
-  success; count-based intrinsic motivation on PPO (§2.6), 98.5% success
-- **Category 5 (Meta-Learning / Transfer Learning):** PPO pretrained on easy tasks,
-  fine-tuned on hard (§2.7), reaches 99.0% success with ≥2× sample efficiency
-
-**Full rubric map:**
-
-- Two or more RL methods (**we have six**): §2.2, §2.3, §2.4, §2.5, §2.6, §2.7 ✓
-- State/action/reward design: §1, §3 ✓
-- Policy parametrization: MlpPolicy [64,64] / linear softmax / linear UCB ✓
-- Advantage estimation: GAE (λ=0.95) / running-mean baseline / Q-learning target ✓
-- Coordinated learning: shared team reward (§2.3) ✓
-- Reward sharing: explicit in IPPO objective ✓
-- Communication protocols: specialist confidence + quality_gain → orchestrator obs ✓
-- Intrinsic motivation: count-based novelty (§2.6) ✓
-- Knowledge transfer, domain adaptation, few-shot learning: transfer learning (§2.7) ✓
-- Test environment: custom Gymnasium env ✓
-- Experimental methodology: 9 conditions, held-out, deterministic eval ✓
-- Statistical validation: Welch's t, bootstrap 95% CI, Cohen's d ✓
-- Architecture diagram: §1 ✓
-- Mathematical formulation: §2 (seven subsections) ✓
-- Challenges: §5 ✓
-- Future improvements: §6 ✓
-- Ethical considerations: §7 ✓
-- Custom tool: Trajectory Replay & Credit Assignment Debugger ✓
-- Demo materials: Ollama real-LLM inference demo ✓
-
----
 
 *End of report.*
