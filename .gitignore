@@ -12,7 +12,7 @@ experiments/results/*.zip
 experiments/results/*.npz
 experiments/results/*.csv
 experiments/results/*.html
-experiments/results/figures/
+# Keep figures for README
 
 # macOS
 .DS_Store

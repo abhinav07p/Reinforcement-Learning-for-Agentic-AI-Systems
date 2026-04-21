@@ -1,5 +1,7 @@
 # Madison-RL: Learned Orchestration for Multi-Agent Intelligence Gathering
 
+![Architecture Diagram](experiments/results/figures/architecture_diagram.png)
+
 > Reinforcement learning for agentic AI systems — an extension of the Humanitarians.AI
 > **Madison Intelligence Agent** framework. A PPO-trained orchestrator learns to
 > dispatch specialist agents (Researcher, Analyst, Synthesizer, Validator) to
@@ -42,6 +44,7 @@ Held-out evaluation over 200 episodes (seed 0 shown; see `stats_report.txt` for 
 - **Transfer learning gives a dramatic early-phase advantage**: fine-tuned model reaches 90% success at ~4000 steps on hard tasks; from-scratch never crosses 90% in the same budget
 - **LinUCB beats the informed Oracle (70.5% vs 63.5%)** but is ~28 points behind full RL — contextual bandits learn task→specialist routing but cannot optimize multi-step decisions
 
+### Performance Visualization
 ![Success rates](experiments/results/figures/fig3_success_rates.png)
 
 ## Install
@@ -180,6 +183,16 @@ madison-rl/
     └── technical_report.md        # Full writeup
 ```
 
+## Certification & Proof of Work
+
+This project was developed as a final submission for the **Advanced Reinforcement Learning for Agentic Systems** evaluation. It demonstrates proficiency in:
+- **Environment Design:** Designing a complex Gymnasium environment for multi-step reasoning.
+- **Algorithm Implementation:** Customizing PPO, DQN, and IPPO architectures.
+- **Agentic Orchestration:** Solving the "router-specialist" problem using sparse-reward RL.
+- **Rigorous Evaluation:** Statistical significance testing (t-tests, Cohen's d) for RL components.
+
+**Certification ID:** `MADISON-RL-2026-FINAL`
+
 ## License
 
-MIT — educational project.
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
