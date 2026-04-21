@@ -1,0 +1,40 @@
+MADISON-RL — STATISTICAL REPORT
+============================================================
+
+Per-condition summary (pooled across seeds)
+------------------------------------------------------------
+condition        n      mean       std    CI95_low   CI95_high     succ%
+Random        1000     0.395     4.447       0.129       0.684     22.9%
+RoundRobin    1000     0.761     4.467       0.485       1.058     27.6%
+Oracle        1000     4.841     5.063       4.542       5.158     64.0%
+LinUCB         200     5.814     4.898       5.130       6.462     71.5%
+DQN            200     9.603     1.621       9.353       9.804     98.5%
+PPO           1000     9.635     1.537       9.537       9.728     98.8%
+PPO+MARL      1000     9.635     1.537       9.537       9.728     98.8%
+PPO+Intrinsic   200     9.672     1.428       9.458       9.850     99.0%
+PPO-Transfer   200     9.665     1.426       9.450       9.843     99.0%
+
+Pairwise tests (Welch's t, pooled episodes) vs PPO
+------------------------------------------------------------
+comparison                 Δmean         t           p         d
+PPO vs Random              9.241     62.11    0.00e+00      2.78  ***
+PPO vs RoundRobin          8.874     59.40    0.00e+00      2.66  ***
+PPO vs Oracle              4.794     28.65   1.53e-137      1.28  ***
+PPO vs LinUCB              3.822     10.93    3.08e-22      1.57  ***
+PPO vs DQN                 0.032      0.26    7.97e-01      0.02  ns
+PPO vs PPO+MARL            0.000      0.00    1.00e+00      0.00  ns
+PPO vs PPO+Intrinsic      -0.036     -0.32    7.47e-01     -0.02  ns
+PPO vs PPO-Transfer       -0.029     -0.26    7.94e-01     -0.02  ns
+
+Significance: *** p<.001  ** p<.01  * p<.05  ns not significant
+Cohen's d:    0.2 small  0.5 medium  0.8 large
+
+Per-seed mean reward (tests across independent seeds)
+------------------------------------------------------------
+condition       DQN    LinUCB    Oracle       PPO  PPO+Intrinsic  PPO+MARL  PPO-Transfer    Random  RoundRobin
+seed                                                                                                          
+0          9.603454  5.813576  4.721062  9.660015       9.671659  9.660015      9.664762 -0.047852    0.506001
+1               NaN       NaN  4.525546  9.516217            NaN  9.516217           NaN  0.187822    0.779144
+2               NaN       NaN  4.840487  9.655464            NaN  9.655464           NaN  0.266858    0.440266
+3               NaN       NaN  5.174716  9.588332            NaN  9.588332           NaN  1.162572    0.900611
+4               NaN       NaN  4.944354  9.757424            NaN  9.757424           NaN  0.403501    1.179424

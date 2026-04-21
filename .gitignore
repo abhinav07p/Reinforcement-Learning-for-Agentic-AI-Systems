@@ -1,0 +1,22 @@
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local results and logs
+experiments/results/*.zip
+experiments/results/*.npz
+experiments/results/*.csv
+experiments/results/*.html
+experiments/results/figures/
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
