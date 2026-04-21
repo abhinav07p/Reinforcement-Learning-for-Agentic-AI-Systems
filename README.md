@@ -1,6 +1,17 @@
 # Madison-RL: Learned Orchestration for Multi-Agent Intelligence Gathering
 
+### This is a Hierarchical Multi-Agent System. On the left, our custom Gymnasium environment generates a 16-dimensional task embedding. This is a latent representation of a human request—capturing its technical requirements and difficulty.
+
+### In the center is the Orchestrator. It sees a 25-dimensional state vector. This vector is dense with information: it includes the task embedding, the partial quality achieved so far, the remaining budget, and a bitmask of which specialists have already been used. The Orchestrator chooses from 5 discrete actions. It can dispatch a Researcher, Analyst, Synthesizer, or Validator, or—most importantly—it can choose the FINISH action. This is the 'stopping logic' the agent has learned. If it stops too early, quality is too low and it fails. If it stops too late, it wastes budget and loses reward.
+
+### Below the Orchestrator are the Specialists. These are not just hard-coded functions; they are Independent PPO agents that share a Team Reward. This ensures the specialists co-adapt their effort levels to the Orchestrator's specific style of management. It’s a complete, learning-based ecosystem.
+
 ![Architecture Diagram](experiments/results/figures/architecture_diagram.png)
+
+### Video of the demo: https://youtu.be/xGG5z24Dje4
+
+
+
 
 > Reinforcement learning for agentic AI systems — an extension of the Humanitarians.AI
 > **Madison Intelligence Agent** framework. A PPO-trained orchestrator learns to
@@ -10,7 +21,6 @@
 
 ## Highlights
 
-- **All 5 rubric RL categories implemented** (the assignment required only 2):
   - **Category 1 (Value-Based):** DQN orchestrator via Stable-Baselines3
   - **Category 2 (Policy Gradient):** PPO orchestrator via Stable-Baselines3 + REINFORCE-with-baseline for IPPO specialists
   - **Category 3 (Multi-Agent RL):** Independent PPO (IPPO) specialists with shared team reward
